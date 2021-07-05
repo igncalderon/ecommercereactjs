@@ -1,0 +1,10 @@
+.cartwidget{
+    border-radius: 50%;
+    background-color: rgb(243, 239, 239);
+    padding: 5px;
+    font-size: 5px;
+}
+.cart{
+    width: 20px;
+    height: auto;
+}

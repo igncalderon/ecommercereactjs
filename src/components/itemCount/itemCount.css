@@ -1,0 +1,33 @@
+.ItemCount{
+    display: flex;
+    flex-direction: column;
+}
+.contador{
+    display: flex;
+}
+.count-boton{
+    background-color:rgba(27, 27, 129, 0.863);
+    border: 2px solid rgba(27, 27, 129, 0.863);
+    color:white;
+    font-size: 1.3em;
+
+}
+.cantidad{
+    text-align: center;
+    /* padding: 3px; */
+    border-color: rgb(83, 60, 212);
+}
+.buy-div{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+.buy-boton{
+    background-color: transparent;
+    border: 1px solid rgba(27, 27, 129, 0.863);
+    color: rgba(27, 27, 129, 0.863);
+    font-size: 1.2em;
+    padding: 0.1em 2em;
+    border-radius: 2px;
+    font-weight: lighter;
+}
