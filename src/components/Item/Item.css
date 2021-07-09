@@ -1,4 +1,8 @@
-
+:root{
+    --primary:rgba(27, 27, 129, 0.863);
+    --secondary: white;
+    --third: rgba(54, 54, 179, 0.863);
+}
 .item{
     display: flex;
     flex-direction: column;
@@ -36,13 +40,19 @@
     align-items: center;
 }
 .item-precio{
-    color:rgb(16, 16, 201);
+    color: var(--third);
     font-weight: 600;
 }
 .item-boton{
-    background-color:rgba(27, 27, 129, 0.863);
+    background-color:var(--primary);
     border: 1px blue solid;
     border-radius: 4px;
     padding: 0.3em 0.5em;
-    color:white;
+    color:var(--secondary);
+    transition: 500ms ease-out ;
+}
+.item-boton:hover{
+    color: var(--secondary);
+    background-color: var(--third);
+    opacity: 90%;
 }

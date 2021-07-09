@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList'
 import { NavBar } from '../NavBar/navBar'
 import { useParams } from 'react-router'
+import { Loader } from '../loader/loader'
 import './itemListContainer.css'
 let catalogo = [
     {
@@ -54,8 +55,8 @@ let catalogo = [
 ] 
 const ItemListContainer = () => {
     const { id } = useParams()
-    console.log(id)
-    const [productos,setProductos] = useState([])
+    // console.log(id)
+    const [productos,setProductos] = useState()
 
     
 
@@ -65,15 +66,30 @@ const ItemListContainer = () => {
             if(id){
                return catalogo.filter((item) => item.category == id)
             }else{
-                return catalogo
+                
+                    return catalogo
+                
+                
             }
         }
         const items = getItems()
-        setProductos(items)
+        if(!productos){
+            setTimeout(() => {
+                setProductos(items)
+            }, 1000);
+        }else{
+            setProductos(items)
+        }
+      
+        
+        
+        
     }, [id])
     return(
+       
      <div className='itemListContainer'>
-         <ItemList items={productos}/>
+         
+         {productos ? <ItemList items={productos}/> : <Loader/>}
      </div>   
         
         

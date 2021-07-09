@@ -17,7 +17,7 @@ export const ItemCount = ({initial = 1, stock, onAdd}) => {
     
 
     return(
-        <div>
+        <div className='ItemCount'>
            <div className='contador'>
                 <button className='count-boton' onClick={() => itemCarrito('-')}>-</button>
                 <input type="text" className='cantidad' value={cantidad} readOnly="readonly"/>

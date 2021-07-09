@@ -4,43 +4,73 @@
     flex-direction: row;
     margin-top: 6vh;
     justify-content: center;
+    /* box-sizing: border-box; */
+    
+    
+}
+.subcard{
+    
+    display: flex;
+    /* height: auto; */
+    
 }
 .card{
-    padding: 30px;
+    
+    padding: 2%;
     display: flex;
-    width: 60%;
+    width: 50%;
     justify-content: center;
     background-color: #ffffff;
+    position: absolute;
+    height: auto;
+    
     
 }
 
 .name-product{
     font-size: 1.5em;
     text-align: center;
-    width: 80%
+
+    word-wrap: break-word;
 }
 .info-product{
-    display: flex;
-    flex-direction: column;
+    
+    
     text-align: left;
     gap: 7%;
-    width: 50%;
-    margin-left: auto;
-    
+    width: 80%;
+   
+    height: auto;
+
 }
 .img-product{
     display: flex;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     
 }
 .envio{
     display: flex;
-    gap: 4px;
+    justify-content: flex-start;
+    
+    gap: 5%;
     color:green;
     font-size: 12px;
 }
-.icon-truck{
-    padding: 4px;
-    font-size: 20px;
+
+.truck{
+    fill:green;
+}
+.botones{
+    flex: 1 1 auto;
+}
+.buy-boton{
+    background-color: transparent;
+    border: 1px solid rgba(27, 27, 129, 0.863);
+    color: rgba(27, 27, 129, 0.863);
+    font-size: 0.8em;
+    padding: 2px 10px;
+    border-radius: 2px;
+    width: 33%;
+    font-weight: lighter;
 }

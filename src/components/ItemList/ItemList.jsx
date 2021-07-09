@@ -2,7 +2,7 @@ import { Item } from "../Item/Item"
 import { Fragment } from "react"
 import './ItemList.css'
 export const ItemList = ({items}) => {
-    console.log(items)
+    // console.log(items)
     return(
         <div>
              <div className='ItemList'>
