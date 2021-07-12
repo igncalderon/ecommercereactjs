@@ -19,9 +19,10 @@ const ItemDetailContainer = () => {
     // const cart = useContext(CartContext)
     const onAdd = (unidades) => {
         setContador(unidades)
-        
+        const title = catalogo[id - 1].title
+        const price = catalogo[id - 1].price
         // setCart( arr => [...arr, {id}])
-        addItem(id,unidades)
+        addItem(id,unidades,title,price)
     }
     
     
