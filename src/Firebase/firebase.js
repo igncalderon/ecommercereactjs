@@ -11,7 +11,6 @@ var firebaseConfig = {
     measurementId: "G-FW1G724LRH"
   };
 //   INICIALIZO FIREBASE
-  const fb = firebase.initializeApp(firebaseConfig)
-
+firebase.initializeApp(firebaseConfig)
 //   disponible para todos
-export const dataBase = fb.firestore()
+export const projectFirestore = firebase.firestore()

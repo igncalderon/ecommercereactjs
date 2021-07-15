@@ -5,6 +5,7 @@ import {ItemCount} from '../itemCount/itemCount'
 import { Link } from 'react-router-dom'
 import './itemDetailContainer.css'
 import Truck from '../../assets/icons/truck.svg'
+
 // LO QQUE NECESITO PARA UTILIZAR EL CONTEXT
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'

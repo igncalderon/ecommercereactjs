@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList'
 import { NavBar } from '../NavBar/navBar'
-import { dataBase } from '../../Firebase/firebase'
+import { projectFirestore as db} from '../../Firebase/firebase'
 import { useParams } from 'react-router'
 import { Loader } from '../loader/loader'
 import './itemListContainer.css'
@@ -58,34 +58,62 @@ const ItemListContainer = () => {
     const { id } = useParams()
     // console.log(id)
     const [productos,setProductos] = useState()
-
-    
-
+    const [items, setItems] = useState()
 
     useEffect(() => {
-        const getItems = () => {
-            if(id){
-               return catalogo.filter((item) => item.category == id)
-            }else{
-                
-                    return catalogo
-                
-                
+        
+        db.collection('perifericos')
+        .onSnapshot((snap) => {
+            const documentos = []
+            snap.forEach(doc => {
+                documentos.push({id2: doc.id, ...doc.data()})
+            });
+            console.log(documentos)
+            const getItems = () => {
+                if(id){
+                   return documentos.filter((item) => item.category == id)
+                }else{
+                        return documentos
+                }
             }
-        }
-        const items = getItems()
-        if(!productos){
-            setTimeout(() => {
-                setProductos(items)
-            }, 1000);
-        }else{
-            setProductos(items)
-        }
+            const items = getItems()
+
+            if(!productos){
+                        setTimeout(() => {
+                            setProductos(items)
+                        }, 1000);
+                    }else{
+                        setProductos(items)
+                    }
+        })
+       
+    }, [id])
+
+
+    // useEffect(() => {
+    //     const getItems = () => {
+    //         if(id){
+    //            return catalogo.filter((item) => item.category == id)
+    //         }else{
+                
+    //                 return catalogo
+                
+                
+    //         }
+    //     }
+    //     const items = getItems()
+    //     if(!productos){
+    //         setTimeout(() => {
+    //             setProductos(items)
+    //         }, 1000);
+    //     }else{
+    //         setProductos(items)
+    //     }
       
         
         
         
-    }, [id])
+    // }, [id])
     return(
        
      <div className='itemListContainer'>
