@@ -1,105 +1,88 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {catalogo} from '../itemListContainer/itemListContainer'
 import {ItemCount} from '../itemCount/itemCount'
 import { Link } from 'react-router-dom'
+import { Loader } from '../loader/loader'
 import './itemDetailContainer.css'
 import Truck from '../../assets/icons/truck.svg'
 
-// LO QQUE NECESITO PARA UTILIZAR EL CONTEXT
+// IMPORTO LA INFO PARA LA BASE DE DATOS
+import { projectFirestore as db} from '../../Firebase/firebase'
+
+// LO QUE NECESITO PARA UTILIZAR EL CONTEXT
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-// import { ItemListContainer, catalogo } from '../itemListContainer/itemListContainer'
+
+
+
+
+
 const ItemDetailContainer = () => {
-    
     const [contador, setContador] = useState()
+    const [item, setItem] = useState()
+    const[loader, setLoader] = useState(true)
     const { id } = useParams()
-    // const [item, setItem] = useState(catalogo[id - 1].title)
-    // const [precio, setPrecio] = useState(catalogo[id - 1].price)
     const {setCart, cart, addItem} = useContext(CartContext)
-    // const cart = useContext(CartContext)
+
     const onAdd = (unidades) => {
         setContador(unidades)
-        const title = catalogo[id - 1].title
-        const price = catalogo[id - 1].price
-        // setCart( arr => [...arr, {id}])
+        const title = item.title
+        const price = item.price
         addItem(id,unidades,title,price)
     }
     
-    
-    // const [producto,setProducto] = useState()
-    // console.log(id)
-  
-    
-   
-    // useEffect(() => {
-   
-    //     // const Promesa = new Promise((res, rej)=>{
-    //     //     setTimeout(() => {
-    //     //         res(item)
-    //     //     }, 2000);
-    //     // })
-        
-    //     // Promesa.then((res) => {
-    //     //     console.log(res)
-    //     //     setProducto(res)
-    //     // })
-    //     const getItem = () => {
-    //         if(id){
+    useEffect(() => {
 
-    //             return catalogo.filter((item) => item.id == id)
-    //         }
-    //     }
-    //     const item = getItem()
-    //     setProducto(item)
-    //     console.log(producto)
-    // }, [])
+        // FILTRO POR EL ID SELECCIONADO
+        let article = db.collection('perifericos').where("id", "==", id)
+        article.get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                setItem((doc.data()));
+                console.log(item);
+            });
+        })
+        .catch((error) => {
+            console.log("Error para obtener documentos: ", error);
+        });
+    }, [])  
+
+
     return(
-             <div className="description-product">
-                 {
-                catalogo.filter((producto) => (producto.id == id))
-                .map((valor) => {
+        <div className="description-product">
+            {
+                loader && <Loader />
+            }
+            
+            { item && 
+            <div className='card'>
+                <div className='subcard'>
+
+                    <div className=''>
+                        <img className='img-product'src={item.pictureUrl}/>
+                    </div>
                     
-                  
-                    return(
-                       
-                            <div className='card'>
-                                <div className='subcard'>
-                                <div className=''>
-                                    <img className='img-product'src={valor.pictureUrl}/>
-                                    
-                                </div>
-                                <div className="info-product">
-                                    <h1 className='name-product'>
-                                        {valor.title}
-                                    </h1>
-                                    <p>{valor.description}</p>
-                                    <div className='envio'>
-                                    {/* <FontAwesomeIcon icon={faTruck} className="icon-truck"/> */}
-                                    <img src={Truck} className='truck'/>
-                                    <h3>Envío Gratis</h3>
-                                    </div>
-                                    <div className='botones'>
-                                    {
-                                    contador ? <Link to='/cart'><button className='buy-boton'>Terminar compra</button></Link> : <ItemCount stock={valor.stock} onAdd={onAdd}></ItemCount>
-                                    }
-                                    </div>
-                                </div>
-                                </div>
+                    <div className="info-product">
+                        <h1 className='name-product'>
+                        {item.title}
+                        </h1>
+                        <p>{item.description}</p>
+
+                        <div className='envio'>            
+                            <img src={Truck} className='truck'/>
+                            <h3>Envío Gratis</h3>
+                        </div>
+                        <div className='botones'>
+                        {
+                        contador ? <Link to='/cart'><button className='buy-boton'>Terminar compra</button></Link> : <ItemCount stock={item.stock} onAdd={onAdd}></ItemCount>
+                        }
+                        </div>
+                    </div>
+                </div>
                                
-                            </div>
-                      
-                       
-                        
-                    )
-                })
+            </div>
                
             }
-             </div>
-            
-            
-            
-        
+        </div>
     )
 }
 

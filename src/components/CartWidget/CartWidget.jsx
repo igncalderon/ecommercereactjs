@@ -8,13 +8,12 @@ export const CartWidget = () => {
     const {setCart, cart, addItem, clearCart, removeItem} = useContext(CartContext)
     return(
         <div className='cartwidget'>
-                <NavLink to='/cart'>
+            <NavLink to='/cart'>
                 <img className='cart' src={Cart} alt='Cart'>
-                
                 </img>
                 <span id="cart_menu_num" data-action="cart-can" className="badge rounded-circle">{cart.length}</span>
-        </NavLink>
-            </div>
+            </NavLink>
+        </div>
         
     )
   

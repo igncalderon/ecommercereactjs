@@ -9,13 +9,9 @@
     
 }
 .subcard{
-    
-    display: flex;
-    /* height: auto; */
-    
+    display: flex;    
 }
 .card{
-    
     padding: 2%;
     display: flex;
     width: 50%;
@@ -23,25 +19,18 @@
     background-color: #ffffff;
     position: absolute;
     height: auto;
-    
-    
 }
 
 .name-product{
     font-size: 1.5em;
     text-align: center;
-
     word-wrap: break-word;
 }
 .info-product{
-    
-    
     text-align: left;
     gap: 7%;
     width: 80%;
-   
     height: auto;
-
 }
 .img-product{
     display: flex;
