@@ -1,3 +1,15 @@
 .itemListContainer{
-   margin: 10vh 0;
+ 
+}
+.box-imagen{
+   
+   display: flex;
+   justify-content: center;
+   margin-bottom: 2em;
+   
+}
+.portada-imagen{
+   height: 400px;
+   width: 1100px;
+ 
 }

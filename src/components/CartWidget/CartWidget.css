@@ -15,7 +15,7 @@
 #cart_menu_num {
     position: absolute;
     top: 40px;
-    
+    font-weight: bolder;
     background: rgb(204, 202, 202);
     width: 12px;
     height: 12px;
@@ -27,3 +27,9 @@
     color: rgb(0, 0, 0);
     padding: 3px;
   }
+
+  #cart_menu_num:hover{
+    background: rgb(0, 0, 0);
+    color: rgb(204, 202, 202);
+  }
+  
