@@ -1,0 +1,29 @@
+
+.footer {
+    display: flex;
+    color: rgba(27, 27, 129, 0.863);
+    padding-top: 1em;
+    justify-content: space-evenly; 
+    min-height: 70px;
+    background-color: #dddddd;
+    
+    width: 100%;
+    margin-top: 4vh; 
+    position: fixed;
+    bottom: 0; 
+  }
+
+.divTitleDescription{
+    width: 20%;
+}
+.divTitleDescription p, .divContact p{
+    font-size: 14px;
+}
+.titleFooter, .contactFooter{
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+

@@ -1,29 +1,3 @@
-table {
-    background: white;
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 2%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  
-  th {
-    background-color: rgba(5, 5, 100, 95);
-    height: 30px;
-    padding: 4px;
-    border-bottom: 1px solid rgb(210, 220, 250);
-    color: rgb(255, 255, 255);
-  }
-  
-  td {
-    color: rgba(100, 100, 100, 60);
-    height: 30px;
-    border: 0.5px solid rgba(240, 240, 240, 10);
-  }
-.remove{
-  color:red;
-}
-
 .divOrder{
   display:flex;
   align-items:center;
@@ -35,6 +9,7 @@ table {
   color: rgba(5, 5, 100, 95);
   font-weight: 500;
   border-radius: 5px;
+  width: 400px;
   background-color: white;
   gap:10px;
   padding: 10px;
@@ -43,6 +18,78 @@ table {
   align-items:center;
   flex-direction: column;
 }
-.labelOrder, .inputOrder{
-  max-width:100px;
+
+
+.Cart{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 10% 100px 10%;
+  padding: 20px 10px 30px 10px;
+}
+.subCart{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 4px;
+  border-bottom: 1px solid rgb(9, 15, 75);
+  color: rgb(9, 15, 75);
+  
+}
+.subCart p {
+  font-weight: 600;
+  text-align: center;
+  
+}
+.divCarritoVacio{
+  display: flex;
+  justify-content: center;
+  padding: 3vh 0;
+}
+.hiddenDivCarrito{
+  display: none;
+}
+.textCarritoVacio{
+  font-weight: 500;
+  width: 100px;
+  text-align: center;
+  margin: 10vh 0;
+}
+.itemCart{
+  margin: 20px 10px;
+  display: flex;
+  border-bottom: 1px solid rgb(142, 142, 145);
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+  gap: 10px;
+  padding: 12px;
+  color: rgb(9, 15, 75);
+}
+.pictureTitle-cart{
+  display: flex;
+  align-items: center;
+  width: 40%
+}
+.pictureTitle-cart p{
+  text-align: center;
+  padding-left: 2px;
+}
+.imagen-cart{
+  width: 120px;
+  height: 120px;
+}
+.boton-cart{
+  background: transparent;
+  padding: 6px 4px;
+  color: rgb(9, 15, 75);
+  border: 1px solid black;
+}
+.numeroDeOrden{
+  text-align: center;
+  padding: 5vh 0;
+}
+.numeroDeOrden span{
+  color: "black";
+  font-weight: 600;
 }

@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Es un ecommerce funcional de periféricos de computadora. Para hacerlo dinámico, está conectado a una base de datos.
+Tiene la pantalla del Carrito para poder visualizar todos los items y así los usuarios podrán tener un control total de sus compras.
+
 ## Available Scripts
 
 In the project directory, you can run:

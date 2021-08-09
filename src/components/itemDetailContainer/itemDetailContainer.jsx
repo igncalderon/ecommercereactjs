@@ -28,7 +28,8 @@ const ItemDetailContainer = () => {
         setContador(unidades)
         const title = item.title
         const price = item.price
-        addItem(id,unidades,title,price)
+        const pictureUrl = item.pictureUrl
+        addItem(id,unidades,title,price, pictureUrl)
     }
     
     useEffect(() => {

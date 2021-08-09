@@ -10,7 +10,7 @@ import PortadaHome from '../../assets/images/portadaHome.jpg'
 import Portada1 from '../../assets/images/portada1.jpg'
 import Portada2 from '../../assets/images/portada2.jpg'
 import Portada3 from '../../assets/images/portada3.jpg'
-import { CarrouselPortada } from '../Carrousel/Carrousel'
+
 import './itemListContainer.css'
 const ItemListContainer = () => {
     const { id } = useParams()
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
             snap.forEach(doc => {
                 documentos.push({id2: doc.id, ...doc.data()})
             });
-            console.log(documentos)
+            
             const getItems = () => {
                 if(id){
                     return documentos.filter((item) => item.category == id)

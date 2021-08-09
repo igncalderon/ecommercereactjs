@@ -4,7 +4,9 @@ import { ItemListContainer } from './components/itemListContainer/itemListContai
 import { ItemDetailContainer } from './components/itemDetailContainer/itemDetailContainer';
 import { CartProvider } from './context/CartContext';
 import { Banner } from './components/banner/banner';
+import { Footer } from './components/footer/footer';
 import { Cart } from './pages/Cart/cart'
+import { NoMatch } from './pages/NoMatch/noMatch';
 import React from "react";
 
 import {
@@ -37,9 +39,14 @@ function App() {
             <Route path='/cart'>
               <Cart />
             </Route> 
-
+            <Route path='*'>
+            <NoMatch />
+        </Route>
           </Switch>
         </CartProvider>
+        
+        <Footer />
+        
     </Router>
   );
 }

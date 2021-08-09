@@ -14,8 +14,7 @@
 }
 .item:hover{
     box-shadow: -1px 8px 12px 1px rgba(143, 142, 142, 0.71);
-    /* -webkit-box-shadow: -1px 18px 20px -7px rgba(54,52,52,0.71);
-    -moz-box-shadow: -1px 18px 20px -7px rgba(54,52,52,0.71); */
+    
 }
 .item-title{
     text-align: center;
